@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assignment2.Observer.BadGuy">
+    <Position X="1" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEgAAAAAAACAABIAAAAAAAQAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BadGuy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assignment2.Observer.EyeOfSauron">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Assignment2.Observer.EyeOfSauron.Unsubscriber" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>EyeOfSauron.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAQAAAAAAAAAAAAACAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>EyeOfSauron.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Assignment2.Observer.TestSauronEye">
+    <Position X="9" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>TestSauronEye.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
