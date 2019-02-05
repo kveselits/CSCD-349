@@ -2,6 +2,6 @@
 {
     internal abstract class TreeDecorator : Tree
     {
-        public abstract string GetDescription();
+        public abstract override string GetDescription();
     }
 }

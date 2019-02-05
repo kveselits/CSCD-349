@@ -2,11 +2,11 @@
 {
     internal abstract class Tree
     {
-        private string _description = "Unknown Tree";
+        protected string Description { get; set; }
 
-        public string GetDescription()
+        public virtual string GetDescription()
         {
-            return _description;
+            return Description;
         }
 
         public abstract double Cost();
