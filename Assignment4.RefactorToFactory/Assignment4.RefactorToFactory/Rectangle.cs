@@ -5,7 +5,7 @@ using System.Text;
 namespace Assignment4.RefactorToFactory
 {
     /// <summary>
-    /// Rectangle Shape class
+    /// Rectangle shape class
     /// </summary>
     class Rectangle : Shape
     {
@@ -15,8 +15,9 @@ namespace Assignment4.RefactorToFactory
         /// <summary>
         /// Constructor accepts width and height
         /// </summary>
-        /// <param name="width">The width of the rectangle</param>
-        /// <param name="height">The height of the rectangle</param>
+        /// <param name="width">Width of rectangle</param>
+        /// <param name="height">Height of rectangle</param>
+
         public Rectangle(double width, double height)
         {
             Width = width;
@@ -27,7 +28,7 @@ namespace Assignment4.RefactorToFactory
         /// Computes area of rectangle:
         /// Area = length * width
         /// </summary>
-        /// <returns>Computed value of rectangle</returns>
+        /// <returns>Computed area of rectangle</returns>
         /// 
         public double ComputeArea()
         {
