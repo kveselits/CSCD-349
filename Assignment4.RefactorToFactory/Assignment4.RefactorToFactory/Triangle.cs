@@ -25,7 +25,7 @@ namespace Assignment4.RefactorToFactory
         /// Area = half of width * height
         /// </summary>
         /// <returns></returns>
-        public double ComputeArea()
+        internal override double ComputeArea()
         {
             return (Width * Height) / 2;
         }

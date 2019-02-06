@@ -4,9 +4,6 @@ using System.Text;
 
 namespace Assignment4.RefactorToFactory
 {
-    /// <summary>
-    /// Rectangle shape class
-    /// </summary>
     class Rectangle : Shape
     {
         public double Width { get; }
@@ -30,7 +27,7 @@ namespace Assignment4.RefactorToFactory
         /// </summary>
         /// <returns>Computed area of rectangle</returns>
         /// 
-        public double ComputeArea()
+        internal override double ComputeArea()
         {
             return Width * Height;
         }

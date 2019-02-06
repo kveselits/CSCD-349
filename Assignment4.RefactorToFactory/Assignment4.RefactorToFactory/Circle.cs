@@ -20,7 +20,7 @@ namespace Assignment4.RefactorToFactory
         /// Area = π * (radius squared)
         /// </summary>
         /// <returns></returns>
-        public double ComputeArea()
+        internal override double ComputeArea()
         {
             return Math.PI * (Math.Pow(Radius, 2));
         }

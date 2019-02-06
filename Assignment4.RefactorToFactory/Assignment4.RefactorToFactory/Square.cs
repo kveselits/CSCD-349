@@ -22,7 +22,7 @@ namespace Assignment4.RefactorToFactory
         /// Area = side squared
         /// </summary>
         /// <returns>Area of a square</returns>
-        public double ComputeArea()
+        internal override double ComputeArea()
         {
             return Math.Pow(Side, 2);
         }

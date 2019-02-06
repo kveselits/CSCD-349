@@ -13,6 +13,8 @@ namespace Assignment4.RefactorToFactory
             Console.WriteLine(tri.ComputeArea());
             Shape circ = new Circle(5);
             Console.WriteLine(circ.ComputeArea());
+
+            Console.WriteLine(rect);
         }
     }
 }
