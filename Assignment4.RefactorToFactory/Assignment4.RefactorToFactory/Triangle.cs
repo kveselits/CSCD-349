@@ -4,30 +4,24 @@ using System.Text;
 
 namespace Assignment4.RefactorToFactory
 {
-    class Triangle : Shape
+    public class Triangle : Shape
     {
-        public double Width { get; }
-        public double Height { get; }
-
-        /// <summary>
-        /// Accepts width and height of triangle
-        /// </summary>
-        /// <param name="width">Width (or base) of triangle</param>
-        /// <param name="height">Height of triangle</param>
-        public Triangle(double width, double height)
+        protected internal Triangle()
         {
-            Width = width;
-            Height = height;
         }
+
+        public double Width { get; set; }
+        public double Height { get; set; }
 
         /// <summary>
         /// Computes the area of triangle:
         /// Area = half of width * height
         /// </summary>
         /// <returns></returns>
-        internal override double ComputeArea()
+        public override double ComputeArea()
         {
             return (Width * Height) / 2;
         }
+
     }
 }

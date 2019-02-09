@@ -4,23 +4,20 @@ using System.Text;
 
 namespace Assignment4.RefactorToFactory
 {
-    class Circle : Shape
+    public class Circle : Shape
     {
-        public double Radius { get; }
-        /// <summary>
-        /// Accepts a single parameter of radius
-        /// </summary>
-        /// <param name="radius">Radius of a circle</param>
-        public Circle(double radius)
+        protected internal Circle()
         {
-            Radius = radius;
         }
+
+        public double Radius { get; set; }
+
         /// <summary>
         /// Computes the area of a circle:
         /// Area = π * (radius squared)
         /// </summary>
         /// <returns></returns>
-        internal override double ComputeArea()
+        public override double ComputeArea()
         {
             return Math.PI * (Math.Pow(Radius, 2));
         }

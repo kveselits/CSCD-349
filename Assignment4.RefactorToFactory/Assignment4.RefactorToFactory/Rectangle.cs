@@ -4,22 +4,14 @@ using System.Text;
 
 namespace Assignment4.RefactorToFactory
 {
-    class Rectangle : Shape
+    public class Rectangle : Shape
     {
-        public double Width { get; }
-        public double Height { get; }
-
-        /// <summary>
-        /// Constructor accepts width and height
-        /// </summary>
-        /// <param name="width">Width of rectangle</param>
-        /// <param name="height">Height of rectangle</param>
-
-        public Rectangle(double width, double height)
+        protected internal Rectangle()
         {
-            Width = width;
-            Height = height;
         }
+
+        public double Width { get; set; }
+        public double Height { get; set; }
 
         /// <summary>
         /// Computes area of rectangle:
@@ -27,7 +19,7 @@ namespace Assignment4.RefactorToFactory
         /// </summary>
         /// <returns>Computed area of rectangle</returns>
         /// 
-        internal override double ComputeArea()
+        public override double ComputeArea()
         {
             return Width * Height;
         }

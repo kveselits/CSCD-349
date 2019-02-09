@@ -4,27 +4,22 @@ using System.Text;
 
 namespace Assignment4.RefactorToFactory
 {
-    class Square : Shape
+    public class Square : Shape
     {
-        public double Side { get; }
-
-        /// <summary>
-        /// Accepts one side of square as its only parameter
-        /// </summary>
-        /// <param name="side">Length of one side of square</param>
-        public Square(double side)
+        protected internal Square()
         {
-            Side = side;
         }
+
+        public double Height { get; set; }
 
         /// <summary>
         /// Compute area of square:
         /// Area = side squared
         /// </summary>
         /// <returns>Area of a square</returns>
-        internal override double ComputeArea()
+        public override double ComputeArea()
         {
-            return Math.Pow(Side, 2);
+            return Math.Pow(Height, 2);
         }
     }
 }
