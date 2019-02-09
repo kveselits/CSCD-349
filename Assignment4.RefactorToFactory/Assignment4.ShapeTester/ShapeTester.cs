@@ -5,7 +5,7 @@ using Assignment4.RefactorToFactory;
 namespace Assignment4.ShapeTester
 {
     /// <summary>
-    /// I realize the need for typecasting violates some OO principles. Ran out of time.
+    /// I realize the need for typecasting probably violates some OO principles. Ran out of time.
     /// I would have liked it so that "Shape newShape = factory.CreateShape("Circle")" worked.
     /// </summary>
     class ShapeTester
