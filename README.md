@@ -1,2 +1,3 @@
 # CSCD-349
-Design Patterns
+Kris Veselits
+#Design Patterns
