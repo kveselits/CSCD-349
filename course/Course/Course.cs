@@ -14,7 +14,7 @@ namespace course
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator)GetEnumerator();
+            return GetEnumerator();
         }
 
         public CourseIterator GetEnumerator()
@@ -28,9 +28,9 @@ namespace course
         private List<Student> Students { get; }
 
         /// <summary>
-        /// Enumerators are positioned before the first element
-        /// until the first MoveNext() call.
-        /// https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable?view=netframework-4.7.2
+        /// "Enumerators are positioned before the first element
+        /// until the first MoveNext() call."
+        /// --From .net API
         /// </summary>
         private int _position = -1;
 
