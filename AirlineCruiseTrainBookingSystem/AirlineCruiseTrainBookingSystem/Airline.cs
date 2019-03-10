@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AirlineCruiseTrainBookingSystem
 {
     public class Airline
     {
+        public List<Flight> Flights { get; }
         private string _name;
 
+        public Airline(string name)
+        {
+            _name = name;
+        }
         public string Name
         {
             get => _name;
