@@ -4,16 +4,15 @@ namespace AirlineCruiseTrainBookingSystem
 {
     public class Flight
     {
-        private List<FlightSection> _sections;
-        private string Aname { get; }
-        private string Orig { get; }
-        private string Dest { get; }
-        private int Year { get; }
-        private int Month { get; }
-        private int Day { get; }
-        public string Id { get; }
+        public Dictionary<SeatClass, FlightSection> Sections { get; }
+        public string Aname { get; }
+        public string Orig { get; }
+        public string Dest { get; }
+        public int Year { get; }
+        public int Month { get; }
+        public int Day { get; }
 
-        public Flight(string aname, string orig, string dest, int year, int month, int day, string id)
+        public Flight(string aname, string orig, string dest, int year, int month, int day)
         {
             Aname = aname;
             Orig = orig;
@@ -21,7 +20,6 @@ namespace AirlineCruiseTrainBookingSystem
             Year = year;
             Month = month;
             Day = day;
-            Id = id;
         }
     }
 }

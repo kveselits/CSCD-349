@@ -5,7 +5,7 @@ namespace AirlineCruiseTrainBookingSystem
 {
     public class Airline
     {
-        public List<Flight> Flights { get; }
+        public Dictionary<string, Flight> Flights { get; } = new Dictionary<string, Flight>();
         private string _name;
 
         public Airline(string name)
