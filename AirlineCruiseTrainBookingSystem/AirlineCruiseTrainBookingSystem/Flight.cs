@@ -1,25 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AirlineCruiseTrainBookingSystem
 {
     public class Flight
     {
-        public Dictionary<SeatClass, FlightSection> Sections { get; }
+        public Dictionary<SeatClass, FlightSection> Sections { get; } = new Dictionary<SeatClass, FlightSection>();
+        public DateTime Time { get; set; }
         public string Aname { get; }
         public string Orig { get; }
         public string Dest { get; }
-        public int Year { get; }
-        public int Month { get; }
-        public int Day { get; }
 
-        public Flight(string aname, string orig, string dest, int year, int month, int day)
+
+        public Flight(string aname, string orig, string dest, DateTime time)
         {
             Aname = aname;
             Orig = orig;
             Dest = dest;
-            Year = year;
-            Month = month;
-            Day = day;
+            Time = time;
         }
+
     }
 }
