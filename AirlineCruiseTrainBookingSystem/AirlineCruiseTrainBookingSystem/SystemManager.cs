@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.CodeAnalysis;
 
 namespace AirlineCruiseTrainBookingSystem
 {
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class SystemManager
     {
         private readonly Dictionary<string, Airport> Airports = new Dictionary<string, Airport>();
@@ -88,6 +85,7 @@ namespace AirlineCruiseTrainBookingSystem
             {
                 Console.WriteLine(airport.Name);
             }
+
             foreach (var airline in Airlines.Values)
             {
                 Console.WriteLine(airline.Name);
@@ -124,7 +122,6 @@ namespace AirlineCruiseTrainBookingSystem
         }
     }
 }
-
 public enum SeatClass
 {
     first,
