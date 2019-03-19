@@ -1,0 +1,4 @@
+string airportCodes = flightData.Split('[', ']')[1];
+            string airlineData = flightData.Split('{', '}')[1];
+            string[] separatingCharacters = { "[", "]," };
+            string[] airlines = airlineData.Split(separatingCharacters, StringSplitOptions.RemoveEmptyEntries);

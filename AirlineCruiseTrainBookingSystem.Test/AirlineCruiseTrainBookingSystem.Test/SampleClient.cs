@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 
 namespace AirlineCruiseTrainBookingSystem.Test
 {
@@ -7,7 +8,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
         /**
 	 * @param args
-	 */
+	 #1#
         public static void Main(String[] args)
         {
             // TODO Auto-generated method stub
@@ -53,3 +54,4 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
     }
 }
+*/

@@ -5,8 +5,8 @@ namespace AirlineCruiseTrainBookingSystem
 {
     public class SystemManager
     {
-        private readonly Dictionary<string, Airport> Airports = new Dictionary<string, Airport>();
-        private readonly Dictionary<string, Airline> Airlines = new Dictionary<string, Airline>();
+        public Dictionary<string, Airport> Airports { get; } = new Dictionary<string, Airport>();
+        public Dictionary<string, Airline> Airlines { get; } = new Dictionary<string, Airline>();
 
         public void createAirport(string n)
         {
@@ -26,9 +26,9 @@ namespace AirlineCruiseTrainBookingSystem
                 Console.WriteLine("Invalid length. Airline name must be less than 6 characters long.");
         }
 
-        public void createFlight(string aname, string orig, string dest, int year, int month, int day, string id)
+        public void createFlight(string aname, string orig, string dest, int year, int month, int day, int hour, int minute, string id)
         {
-            var date = CreateDate(year, month, day);
+            var date = CreateDate(year, month, day, hour, minute);
             if (!date.Equals(DateTime.MinValue))//Checking for Default MinValue 
             {
                 if (!(orig.Equals(dest)))
@@ -42,12 +42,12 @@ namespace AirlineCruiseTrainBookingSystem
                 Console.WriteLine("Airport does not exist");
         }
 
-        private static DateTime CreateDate(int year, int month, int day)
+        private static DateTime CreateDate(int year, int month, int day, int hour, int minute)
         {
             DateTime date = new DateTime();
             try
             {
-                date = new DateTime(year, month, day);
+                date = new DateTime(year, month, day, hour, minute, 0);
             }
             catch (ArgumentOutOfRangeException e)
             {
@@ -69,11 +69,11 @@ namespace AirlineCruiseTrainBookingSystem
                 Console.WriteLine("Airline does not exist.");
         }
 
-        public void bookSeat(String air, String fl, SeatClass s, int row, char col)
+        public void bookSeat(String air, String fl, SeatClass s, char layout, int row)
         {
             if (Airlines.ContainsKey(air))
                 if (Airlines[air].Flights.ContainsKey(fl))
-                    if (!Airlines[air].Flights[fl].Sections[s].bookSeat(row, col))
+                    if (!Airlines[air].Flights[fl].Sections[s].bookSeat(layout, row))
                         Console.WriteLine("Seat already booked.");
             if (!Airlines.ContainsKey(air))
                 Console.WriteLine("Airline does not exist.");

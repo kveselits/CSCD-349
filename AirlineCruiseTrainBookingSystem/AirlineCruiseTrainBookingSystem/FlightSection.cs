@@ -41,7 +41,7 @@ namespace AirlineCruiseTrainBookingSystem
             }
             return false;
         }
-        public bool bookSeat(int row, char col)
+        public bool bookSeat(char col, int row)
         {
             if (Seats.Any(item => item.Row == row && item.Column == col))
                 return false;
