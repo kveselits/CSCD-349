@@ -1,0 +1,25 @@
+Invalid operation: Airport name already exists.
+Invalid length. Airport name must be exactly 3 characters long.
+Invalid length. Airline name must be less than 6 characters long.
+Invalid operation: Airline name already exists.
+Origin cannot be the same as destination.
+Airport does not exist
+Invalid operation: Flight ID already exists.
+Date is impossible or in the past.
+Invalid Operation: Seat class already exists.
+Airline does not exist.
+Airline does not exist.
+Seat already booked.
+DEN
+DFW
+LON
+DELTA
+Flight Name:DELTA Origin: DEN Destination: LON Date: 10/10/2018 12:00:00 AM
+Seating Class: economy
+Seat: Row[1] Column[A] Booked: True
+Seat: Row[1] Column[B] Booked: True
+Seating Class: first
+Seat: Row[1] Column[A] Booked: True
+AMER
+FRONT
+Press any key to continue . . .
