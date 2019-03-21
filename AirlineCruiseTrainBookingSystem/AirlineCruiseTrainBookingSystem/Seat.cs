@@ -2,33 +2,16 @@
 {
     public class Seat
     {
-        private int _row;
-        private char _column;
-        private readonly bool _booked;
+        public int Row { get; }
+        public int Column { get; }
+        public int SeatPrice { get; }
+        public bool Booked { get; set; }
 
-        public Seat(int row, char column, bool booked)
+        public Seat(int row, int column, int seatPrice)
         {
             Row = row;
             Column = column;
-            _booked = booked;
-        }
-
-        public int Row
-        {
-            get => _row;
-            set => _row = value;
-        }
-
-        public char Column
-        {
-            get => _column;
-            set => _column = value;
-        }
-
-        public bool Booked
-        {
-            get => _booked;
-            set => throw new System.NotImplementedException();
+            SeatPrice = seatPrice;
         }
     }
 }

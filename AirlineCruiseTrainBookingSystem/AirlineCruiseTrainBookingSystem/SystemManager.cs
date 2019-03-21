@@ -29,11 +29,11 @@ namespace AirlineCruiseTrainBookingSystem
         public void createFlight(string aname, string orig, string dest, int year, int month, int day, int hour, int minute, string id)
         {
             var date = CreateDate(year, month, day, hour, minute);
-            if (!date.Equals(DateTime.MinValue))//Checking for Default MinValue 
+            if (!date.Equals(DateTime.MinValue))//Checking for Default MinValue which indicates DateTime exception
             {
                 if (!(orig.Equals(dest)))
                     if (Airlines.ContainsKey(aname))
-                        if (!Airlines[aname].Flights.TryAdd(id, new Flight(aname, orig, dest, date)))
+                        if (!Airlines[aname].Flights.TryAdd(id, new Flight(aname, orig, dest, date, id)))
                             Console.WriteLine("Invalid operation: Flight ID already exists.");
             }
             if (orig.Equals(dest))
@@ -57,23 +57,23 @@ namespace AirlineCruiseTrainBookingSystem
             return date;
         }
 
-        public void createSection(string air, string flID, int rows, int cols, SeatClass s)
+        public void createSection(string air, string flID, SeatClass s, int seatPrice, char layout, int rows)
         {
-            if (rows <= 100 && cols <= 10)
+            if (rows <= 100)
                 if (Airlines.ContainsKey(air))
-                    if (!Airlines[air].Flights[flID].Sections.TryAdd(s, new FlightSection(air, flID, rows, cols, s)))
+                    if (!Airlines[air].Flights[flID].Sections.TryAdd(s, new FlightSection(air, flID, s, layout, rows, seatPrice)))
                         Console.WriteLine("Invalid Operation: Seat class already exists.");
-            if (rows >= 100 && cols >= 10)
+            if (rows >= 100)
                 Console.WriteLine("Section must have no more than 100 rows and 10 columns.");
             if (!Airlines.ContainsKey(air))
                 Console.WriteLine("Airline does not exist.");
         }
 
-        public void bookSeat(String air, String fl, SeatClass s, char layout, int row)
+        public void bookSeat(String air, String fl, SeatClass s, int col, int row)
         {
             if (Airlines.ContainsKey(air))
                 if (Airlines[air].Flights.ContainsKey(fl))
-                    if (!Airlines[air].Flights[fl].Sections[s].bookSeat(layout, row))
+                    if (!Airlines[air].Flights[fl].Sections[s].bookSeat(col, row))
                         Console.WriteLine("Seat already booked.");
             if (!Airlines.ContainsKey(air))
                 Console.WriteLine("Airline does not exist.");
@@ -91,16 +91,82 @@ namespace AirlineCruiseTrainBookingSystem
                 Console.WriteLine(airline.Name);
                 foreach (var flight in airline.Flights.Values)
                 {
-                    Console.WriteLine($"Flight Name:{flight.Aname} Origin: {flight.Orig} Destination: {flight.Dest} Date: {flight.Time}");
+                    Console.WriteLine($"Flight Name:{flight.Aname} Flight ID: {flight.Id} Origin: {flight.Orig} Destination: {flight.Dest} Date: {flight.Time}");
                     foreach (var section in flight.Sections.Values)
                     {
                         Console.WriteLine($"Seating Class: {section.SeatClass}");
-                        foreach (var seat in section.Seats)
+                        foreach (var column in section.Layout.Values)
                         {
-                            Console.WriteLine($"Seat: Row[{seat.Row}] Column[{seat.Column}] Booked: {seat.Booked}");
+                            foreach (var seat in column)
+                            {
+                                Console.WriteLine($"Seat: Row[{seat.Row}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice}] Seat Available: [{seat.Booked}]");
+                            }
                         }
                     }
                 }
+            }
+        }
+        public void displaySystemDetails(int selection)
+        {
+            switch (selection)
+            {
+                case 1:
+                    foreach (var airport in Airports.Values)
+                    {
+                        Console.WriteLine(airport.Name);
+                    }
+
+                    break;
+                case 2:
+                    foreach (var airline in Airlines.Values)
+                    {
+                        Console.WriteLine(airline.Name);
+                    }
+                    break;
+                case 3:
+                    foreach (var airline in Airlines.Values)
+                    {
+                        foreach (var flight in airline.Flights.Values)
+                        {
+                            Console.WriteLine($"Flight Name:{flight.Aname} Flight ID: {flight.Id} Origin: {flight.Orig} Destination: {flight.Dest} Date: {flight.Time}");
+                        }
+                    }
+                    break;
+                case 4:
+                    {
+                        foreach (var airline in Airlines.Values)
+                        {
+                            foreach (var flight in airline.Flights.Values)
+                            {
+                                foreach (var section in flight.Sections.Values)
+                                {
+                                    Console.WriteLine($"Section Flight ID: {section.FlId} Seating Class: {section.SeatClass}");
+                                }
+                            }
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        foreach (var airline in Airlines.Values)
+                        {
+                            foreach (var flight in airline.Flights.Values)
+                            {
+                                foreach (var section in flight.Sections.Values)
+                                {
+                                    foreach (var column in section.Layout.Values)
+                                    {
+                                        foreach (var seat in column)
+                                        {
+                                            Console.WriteLine($"Seat: Row[{seat}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice}] Seat Available: [{seat.Booked}]");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+
             }
         }
 
@@ -124,7 +190,7 @@ namespace AirlineCruiseTrainBookingSystem
 }
 public enum SeatClass
 {
-    first,
-    economy,
-    business,
+    first = 'F',
+    economy = 'E',
+    business = 'B'
 }
