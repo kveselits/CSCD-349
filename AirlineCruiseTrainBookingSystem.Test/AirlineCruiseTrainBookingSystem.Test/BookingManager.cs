@@ -30,7 +30,11 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
             RegisterFlightData(airlineFlightData);
             BookingInterface uI = new BookingInterface(Res);
-            uI.StartUp();
+            while (true)
+            {
+                uI.StartUp();
+            }
+            
         }
 
         private static void RegisterFlightData(string flightData)
@@ -114,7 +118,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
             Res.displaySystemDetails();
 
-            Res.findAvailableFlights("DEN", "LON");
+            /*Res.findAvailableFlights("DEN", "LON");*/
         }
 
         private static string LoadFlightData()

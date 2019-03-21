@@ -4,7 +4,7 @@
     {
         public int Row { get; }
         public int Column { get; }
-        public int SeatPrice { get; }
+        public int SeatPrice { get; set; }
         public bool Booked { get; set; }
 
         public Seat(int row, int column, int seatPrice)

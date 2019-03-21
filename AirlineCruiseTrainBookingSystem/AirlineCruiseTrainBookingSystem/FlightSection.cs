@@ -11,6 +11,7 @@ namespace AirlineCruiseTrainBookingSystem
         public string FlId { get; }
 
         public SeatClass SeatClass { get; }
+        public int SeatPrice { get; set; }
 
         public Dictionary<int, List<Seat>> Layout { get; }
 
@@ -19,6 +20,7 @@ namespace AirlineCruiseTrainBookingSystem
             Air = air;
             FlId = flId;
             SeatClass = seatClass;
+            SeatPrice = seatPrice;
             Layout = CreateLayout(layout, rows, seatPrice);
         }
 

@@ -91,7 +91,7 @@ namespace AirlineCruiseTrainBookingSystem
                 Console.WriteLine(airline.Name);
                 foreach (var flight in airline.Flights.Values)
                 {
-                    Console.WriteLine($"Flight Name:{flight.Aname} Flight ID: {flight.Id} Origin: {flight.Orig} Destination: {flight.Dest} Date: {flight.Time}");
+                    Console.WriteLine($"Flight Name:{flight.Aname} Flight ID: {flight.Id} Origin: {flight.Orig} Destination: {flight.Dest} Date: {flight.Date}");
                     foreach (var section in flight.Sections.Values)
                     {
                         Console.WriteLine($"Seating Class: {section.SeatClass}");
@@ -99,7 +99,7 @@ namespace AirlineCruiseTrainBookingSystem
                         {
                             foreach (var seat in column)
                             {
-                                Console.WriteLine($"Seat: Row[{seat.Row}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice}] Seat Available: [{seat.Booked}]");
+                                Console.WriteLine($"Seat: Row[{seat.Row}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice}] Seat Booked: [{seat.Booked}]");
                             }
                         }
                     }
@@ -128,7 +128,7 @@ namespace AirlineCruiseTrainBookingSystem
                     {
                         foreach (var flight in airline.Flights.Values)
                         {
-                            Console.WriteLine($"Flight Name:{flight.Aname} Flight ID: {flight.Id} Origin: {flight.Orig} Destination: {flight.Dest} Date: {flight.Time}");
+                            Console.WriteLine($"Flight Name:{flight.Aname} Flight ID: {flight.Id} Origin: {flight.Orig} Destination: {flight.Dest} Date: {flight.Date}");
                         }
                     }
                     break;
@@ -158,7 +158,7 @@ namespace AirlineCruiseTrainBookingSystem
                                     {
                                         foreach (var seat in column)
                                         {
-                                            Console.WriteLine($"Seat: Row[{seat}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice}] Seat Available: [{seat.Booked}]");
+                                            Console.WriteLine($"Seat: Row[{seat}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice}] Seat Booked: [{seat.Booked}]");
                                         }
                                     }
                                 }
@@ -170,21 +170,23 @@ namespace AirlineCruiseTrainBookingSystem
             }
         }
 
-        public void findAvailableFlights(string orig, string dest)
+        public List<Flight> findAvailableFlights(string orig, string dest, SeatClass seatingClass, DateTime date)
         {
-            List<object> AvailableFlights = new List<object>();
+            List<Flight> AvailableFlights = new List<Flight>();
             foreach (var airline in Airlines.Values)
             {
-                foreach (var flight in airline.Flights)
+                foreach (var flight in airline.Flights.Values)
                 {
-                    if (flight.Value.Orig.Equals(orig) && flight.Value.Dest.Equals(dest))
-                        foreach (var section in flight.Value.Sections)
+                    if (flight.Orig.Equals(orig) && flight.Dest.Equals(dest) && flight.Date.Month.Equals(date.Month) &&
+                        flight.Date.Day.Equals(date.Day))
+                        if (flight.Sections[seatingClass].hasAvailableSeats())
                         {
-                            if (section.Value.hasAvailableSeats())
-                                AvailableFlights.Add(flight);
+                            AvailableFlights.Add(flight);
                         }
                 }
             }
+
+            return AvailableFlights;
         }
     }
 }

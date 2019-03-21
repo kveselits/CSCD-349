@@ -1,8 +1,5 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
 
 namespace AirlineCruiseTrainBookingSystem.Test
 {
@@ -15,7 +12,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
             Res = res;
         }
 
-        public void StartUp()
+        public bool StartUp()
         {
             int selection = 0;
             Console.WriteLine($"\nPlease choose an option from the following list:\n" +
@@ -25,39 +22,112 @@ namespace AirlineCruiseTrainBookingSystem.Test
                               $"4: Change the seat class (e.g., economy) pricing for an origin and destination for a given airline.\n" +
                               $"5: Book a seat given a specific seat on a flight.\n" +
                               $"6: Book a seat on a flight given only a seating preference and seating class\n" +
-                              $"7: Display details of the airport system" +
-                              $"8: save detail to file\n");
+                              $"7: Display details of the airport system\n" +
+                              $"8: Save details to file\n" +
+                              $"9: Quit");
             do
             {
                 Console.WriteLine("Please select a valid option: ");
                 var input = Console.ReadLine();
                 int.TryParse(input, out selection);
-            } while (selection < 1 || selection > 8);
+            } while (selection < 1 || selection > 9);
 
             switch (selection)
             {
                 case 1:
+                    CreateAirportSystem();
                     break;
                 case 2:
                     ChangePrice();
                     break;
                 case 3:
+                    QueryAvailableFlights();
                     break;
                 case 4:
+                    ChangeSeatClass();
                     break;
                 case 5:
+                    BookSpecificSeat();
                     break;
                 case 6:
+                    BookByPreference();
                     break;
                 case 7:
                     DisplaySystemDetails();
                     break;
                 case 8:
+                    SaveDetailsToFile();
                     break;
-                default:
-                    break;
+                case 9:
+                    return false;
             }
+            return true;
+        }
 
+        private void SaveDetailsToFile()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BookByPreference()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BookSpecificSeat()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ChangeSeatClass()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void QueryAvailableFlights()
+        {
+            Console.WriteLine("Please select an origin");
+            string origin = Console.ReadLine();
+            Console.WriteLine("Please select a destination");
+            string destination = Console.ReadLine();
+            SeatClass seatingClass = CreateSeatingClass();
+            Console.WriteLine("Please select a date");
+            string tempDate = Console.ReadLine();
+            DateTime date = new DateTime();
+            DateTime.TryParse(tempDate, out date);
+            List<Flight> flights = Res.findAvailableFlights(origin, destination, seatingClass, date);
+
+            foreach (var flight in flights)
+            {
+                Console.WriteLine(
+                    $"Flight Name:{flight.Aname} Flight ID: {flight.Id} Origin: {flight.Orig} Destination: {flight.Dest} Date: {flight.Date} Price: {flight.Sections[seatingClass].SeatPrice}");
+            }
+            /*flight.Sections[seatingClass].SeatPrice;*/
+        }
+
+        private SeatClass CreateSeatingClass()
+        {
+            int selection;
+            do
+            {
+                Console.WriteLine("Please select a seating class:\n" +
+                                  "1: First\n" +
+                                  "2: Economy\n" +
+                                  "3: Business\n");
+                var input = Console.ReadLine();
+                int.TryParse(input, out selection);
+            } while (selection < 1 || selection > 3);
+
+            if (selection.Equals(1))
+                return SeatClass.first;
+            if (selection.Equals(2))
+                return SeatClass.economy;
+            return (SeatClass.business);
+        }
+
+        private void CreateAirportSystem()
+        {
+            throw new NotImplementedException();
         }
 
         private void DisplaySystemDetails()
@@ -80,23 +150,24 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
         private void ChangePrice()
         {
+            //Yeah, this got really messy...
             Console.WriteLine("Change the price associated with seats in a flight section " +
                               "(all seats in a flight section have the same price).");
             Console.WriteLine("Which Airline would you like to choose?");
-            Res.displaySystemDetails();
+            Res.displaySystemDetails(2);
             string input;
             do
             {
                 Console.WriteLine("Please select an Airline: ");
                 input = Console.ReadLine();
-                if(!Res.Airlines.ContainsKey(input))
+                if (!Res.Airlines.ContainsKey(input))
                     Console.WriteLine("Airline doesn't exist.");
             } while (!Res.Airlines.ContainsKey(input));
 
             string airline = input;
 
             Console.WriteLine($"Please choose a flight:");
-            Res.displaySystemDetails();
+            Res.displaySystemDetails(3);
 
             do
             {
@@ -108,9 +179,48 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
             string flight = input;
 
-            Console.WriteLine($"Please choose a flight section:");
-            Res.displaySystemDetails();
-           
+            Console.WriteLine($"Please choose a flight section:\n");
+
+            foreach (var section in Res.Airlines[airline].Flights[flight].Sections)
+            {
+                Console.WriteLine(section.Value.SeatClass);
+            }
+
+
+            bool foundItem = false;
+            FlightSection sectionItem;
+            do
+            {
+                Console.WriteLine("Please choose a flight section ");
+                input = Console.ReadLine();
+                foreach (var section in Res.Airlines[airline].Flights[flight].Sections.Values)
+                {
+                    if (section.SeatClass.ToString().Equals(input))
+                    {
+                        foundItem = true;
+                        Console.WriteLine("What would you like the price to be?");
+                        int selection;
+                        string newInput;
+                        do
+                        {
+                            Console.WriteLine("Please select a valid price: ");
+                            newInput = Console.ReadLine();
+                        } while (!int.TryParse(newInput, out selection));
+
+                        section.SeatPrice = selection;
+                        /*foreach (var column in section.Layout.Values)
+                        {
+                            foreach (var seat in column)
+                            {
+                                seat.SeatPrice = 400;
+                            }
+                        }*/
+                    }
+                }
+            } while (foundItem == false);
+
+
+
         }
     }
 }

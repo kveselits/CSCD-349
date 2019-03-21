@@ -7,7 +7,7 @@ namespace AirlineCruiseTrainBookingSystem
     {
         public Dictionary<SeatClass, FlightSection> Sections { get; } = new Dictionary<SeatClass, FlightSection>();
 
-        public DateTime Time { get; set; }
+        public DateTime Date { get; set; }
 
         public string Aname { get; }
 
@@ -17,12 +17,12 @@ namespace AirlineCruiseTrainBookingSystem
         public string Id { get; }
 
 
-        public Flight(string aname, string orig, string dest, DateTime time, string id)
+        public Flight(string aname, string orig, string dest, DateTime date, string id)
         {
             Aname = aname;
             Orig = orig;
             Dest = dest;
-            Time = time;
+            Date = date;
             Id = id;
         }
 
