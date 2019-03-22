@@ -1,0 +1,703 @@
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+2
+Change the price associated with seats in a flight section (all seats in a flight section have the same price).
+Which Airline would you like to choose?
+AMER
+UNTD
+Please select an Airline:
+AMER
+Please choose a flight:
+Flight Name:AMER Flight ID: AA1 Origin: DEN Destination: LAX Date: 10/8/2011 4:30:00 PM
+Flight Name:AMER Flight ID: AA2 Origin: LAX Destination: DEN Date: 8/9/2011 7:30:00 AM
+Flight Name:UNTD Flight ID: UA21 Origin: NYC Destination: SEA Date: 11/8/2011 12:30:00 PM
+Flight Name:UNTD Flight ID: UA12 Origin: SEA Destination: DEN Date: 8/9/2011 7:30:00 AM
+Please choose a flight (based on flight ID)
+AA1
+Please choose a flight section:
+
+Economy
+First
+Please choose a flight section
+Economy
+What would you like the price to be?
+Please select a valid price:
+300
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+7
+
+Please selection an option:
+1: Display Airports
+2: Display Airlines
+3: Display Flight Names
+4: Display Sections
+5: Display Seating Arrangements
+
+Please select a valid option:
+3
+Flight Name:AMER Flight ID: AA1 Origin: DEN Destination: LAX Date: 10/8/2011 4:30:00 PM
+Flight Name:AMER Flight ID: AA2 Origin: LAX Destination: DEN Date: 8/9/2011 7:30:00 AM
+Flight Name:UNTD Flight ID: UA21 Origin: NYC Destination: SEA Date: 11/8/2011 12:30:00 PM
+Flight Name:UNTD Flight ID: UA12 Origin: SEA Destination: DEN Date: 8/9/2011 7:30:00 AM
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+3
+Please select an origin
+DEN
+Please select a destination
+LAX
+Please select a seating class:
+1: First
+2: Economy
+3: Business
+
+1
+Please select a date
+10
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+3
+Please select an origin
+DEN
+Please select a destination
+LAX
+Please select a seating class:
+1: First
+2: Economy
+3: Business
+
+1
+Please select a date
+10 8
+Flight Name:AMER Flight ID: AA1 Origin: DEN Destination: LAX Date: 10/8/2011 4:30:00 PM Price: 500
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+4
+AMER
+UNTD
+Which airline would you like to change the pricing for:
+UNTD
+[DEN, NYC, SEA, LAX]
+Please select a origin:
+SEA
+Please select a destination:
+DEN
+Please choose a seat class (E.G., Business, Economy, First Class):
+Business
+What would you like to change the price to?
+Please select a valid option:
+12400
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+7
+
+Please selection an option:
+1: Display Airports
+2: Display Airlines
+3: Display Flight Names
+4: Display Sections
+5: Display Seating Arrangements
+
+Please select a valid option:
+5
+SeatID: AMER:AA1:Economy:1:0 Column[1] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:1 Column[1] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:2 Column[1] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:3 Column[1] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:0 Column[2] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:1 Column[2] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:2 Column[2] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:3 Column[2] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:0 Column[3] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:1 Column[3] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:2 Column[3] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:3 Column[3] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:First:1:0 Column[1] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:1:1 Column[1] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:2:0 Column[2] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:2:1 Column[2] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:3:0 Column[3] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:3:1 Column[3] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:0 Column[1] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:1 Column[1] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:2 Column[1] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:3 Column[1] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:4 Column[1] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:0 Column[2] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:1 Column[2] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:2 Column[2] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:3 Column[2] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:4 Column[2] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:0 Column[3] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:1 Column[3] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:2 Column[3] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:3 Column[3] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:4 Column[3] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:0 Column[1] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:1 Column[1] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:2 Column[1] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:0 Column[2] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:1 Column[2] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:2 Column[2] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:0 Column[3] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:1 Column[3] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:2 Column[3] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:0 Column[1] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:1 Column[1] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:2 Column[1] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:3 Column[1] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:4 Column[1] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:5 Column[1] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:0 Column[2] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:1 Column[2] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:2 Column[2] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:3 Column[2] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:4 Column[2] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:5 Column[2] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:0 Column[3] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:1 Column[3] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:2 Column[3] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:3 Column[3] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:4 Column[3] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:5 Column[3] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:0 Column[1] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:1 Column[1] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:2 Column[1] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:0 Column[2] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:1 Column[2] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:2 Column[2] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:0 Column[3] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:1 Column[3] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:2 Column[3] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:0 Column[1] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:1 Column[1] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:2 Column[1] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:3 Column[1] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:4 Column[1] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:0 Column[2] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:1 Column[2] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:2 Column[2] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:3 Column[2] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:4 Column[2] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:0 Column[3] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:1 Column[3] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:2 Column[3] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:3 Column[3] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:4 Column[3] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:First:1:0 Column[1] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:1:1 Column[1] Row[1] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:2:0 Column[2] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:2:1 Column[2] Row[1] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:3:0 Column[3] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:3:1 Column[3] Row[1] SeatPrice: [1200] SeatBooked: [False]
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+5
+SeatID: AMER:AA1:Economy:1:0 Column[1] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:1 Column[1] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:2 Column[1] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:3 Column[1] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:0 Column[2] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:1 Column[2] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:2 Column[2] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:3 Column[2] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:0 Column[3] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:1 Column[3] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:2 Column[3] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:3 Column[3] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:First:1:0 Column[1] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:1:1 Column[1] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:2:0 Column[2] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:2:1 Column[2] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:3:0 Column[3] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:3:1 Column[3] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:0 Column[1] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:1 Column[1] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:2 Column[1] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:3 Column[1] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:4 Column[1] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:0 Column[2] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:1 Column[2] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:2 Column[2] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:3 Column[2] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:4 Column[2] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:0 Column[3] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:1 Column[3] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:2 Column[3] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:3 Column[3] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:4 Column[3] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:0 Column[1] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:1 Column[1] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:2 Column[1] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:0 Column[2] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:1 Column[2] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:2 Column[2] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:0 Column[3] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:1 Column[3] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:2 Column[3] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:0 Column[1] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:1 Column[1] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:2 Column[1] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:3 Column[1] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:4 Column[1] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:5 Column[1] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:0 Column[2] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:1 Column[2] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:2 Column[2] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:3 Column[2] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:4 Column[2] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:5 Column[2] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:0 Column[3] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:1 Column[3] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:2 Column[3] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:3 Column[3] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:4 Column[3] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:5 Column[3] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:0 Column[1] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:1 Column[1] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:2 Column[1] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:0 Column[2] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:1 Column[2] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:2 Column[2] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:0 Column[3] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:1 Column[3] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:2 Column[3] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:0 Column[1] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:1 Column[1] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:2 Column[1] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:3 Column[1] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:4 Column[1] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:0 Column[2] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:1 Column[2] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:2 Column[2] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:3 Column[2] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:4 Column[2] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:0 Column[3] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:1 Column[3] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:2 Column[3] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:3 Column[3] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:4 Column[3] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:First:1:0 Column[1] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:1:1 Column[1] Row[1] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:2:0 Column[2] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:2:1 Column[2] Row[1] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:3:0 Column[3] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:3:1 Column[3] Row[1] SeatPrice: [1200] SeatBooked: [False]
+Please select a seat,For example, "UNTD:UA12:First:3:1":
+Please select a valid option:
+UNTD:UA12:First:3:0
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+7
+
+Please selection an option:
+1: Display Airports
+2: Display Airlines
+3: Display Flight Names
+4: Display Sections
+5: Display Seating Arrangements
+
+Please select a valid option:
+5
+SeatID: AMER:AA1:Economy:1:0 Column[1] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:1 Column[1] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:2 Column[1] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:3 Column[1] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:0 Column[2] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:1 Column[2] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:2 Column[2] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:3 Column[2] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:0 Column[3] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:1 Column[3] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:2 Column[3] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:3 Column[3] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:First:1:0 Column[1] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:1:1 Column[1] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:2:0 Column[2] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:2:1 Column[2] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:3:0 Column[3] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:3:1 Column[3] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:0 Column[1] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:1 Column[1] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:2 Column[1] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:3 Column[1] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:4 Column[1] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:0 Column[2] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:1 Column[2] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:2 Column[2] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:3 Column[2] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:4 Column[2] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:0 Column[3] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:1 Column[3] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:2 Column[3] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:3 Column[3] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:4 Column[3] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:0 Column[1] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:1 Column[1] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:2 Column[1] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:0 Column[2] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:1 Column[2] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:2 Column[2] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:0 Column[3] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:1 Column[3] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:2 Column[3] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:0 Column[1] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:1 Column[1] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:2 Column[1] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:3 Column[1] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:4 Column[1] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:5 Column[1] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:0 Column[2] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:1 Column[2] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:2 Column[2] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:3 Column[2] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:4 Column[2] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:5 Column[2] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:0 Column[3] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:1 Column[3] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:2 Column[3] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:3 Column[3] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:4 Column[3] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:5 Column[3] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:0 Column[1] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:1 Column[1] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:2 Column[1] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:0 Column[2] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:1 Column[2] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:2 Column[2] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:0 Column[3] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:1 Column[3] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:2 Column[3] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:0 Column[1] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:1 Column[1] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:2 Column[1] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:3 Column[1] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:4 Column[1] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:0 Column[2] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:1 Column[2] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:2 Column[2] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:3 Column[2] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:4 Column[2] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:0 Column[3] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:1 Column[3] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:2 Column[3] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:3 Column[3] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:4 Column[3] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:First:1:0 Column[1] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:1:1 Column[1] Row[1] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:2:0 Column[2] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:2:1 Column[2] Row[1] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:3:0 Column[3] Row[0] SeatPrice: [1200] SeatBooked: [True]
+SeatID: UNTD:UA12:First:3:1 Column[3] Row[1] SeatPrice: [1200] SeatBooked: [False]
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+7
+
+Please selection an option:
+1: Display Airports
+2: Display Airlines
+3: Display Flight Names
+4: Display Sections
+5: Display Seating Arrangements
+
+Please select a valid option:
+1
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+7
+
+Please selection an option:
+1: Display Airports
+2: Display Airlines
+3: Display Flight Names
+4: Display Sections
+5: Display Seating Arrangements
+
+Please select a valid option:
+2
+AMER
+UNTD
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+7
+
+Please selection an option:
+1: Display Airports
+2: Display Airlines
+3: Display Flight Names
+4: Display Sections
+5: Display Seating Arrangements
+
+Please select a valid option:
+3
+Flight Name:AMER Flight ID: AA1 Origin: DEN Destination: LAX Date: 10/8/2011 4:30:00 PM
+Flight Name:AMER Flight ID: AA2 Origin: LAX Destination: DEN Date: 8/9/2011 7:30:00 AM
+Flight Name:UNTD Flight ID: UA21 Origin: NYC Destination: SEA Date: 11/8/2011 12:30:00 PM
+Flight Name:UNTD Flight ID: UA12 Origin: SEA Destination: DEN Date: 8/9/2011 7:30:00 AM
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+7
+
+Please selection an option:
+1: Display Airports
+2: Display Airlines
+3: Display Flight Names
+4: Display Sections
+5: Display Seating Arrangements
+
+Please select a valid option:
+4
+Section Flight ID: AA1 Seating Class: Economy
+Section Flight ID: AA1 Seating Class: First
+Section Flight ID: AA2 Seating Class: Economy
+Section Flight ID: AA2 Seating Class: First
+Section Flight ID: UA21 Seating Class: Economy
+Section Flight ID: UA21 Seating Class: First
+Section Flight ID: UA12 Seating Class: Business
+Section Flight ID: UA12 Seating Class: First
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:
+7
+
+Please selection an option:
+1: Display Airports
+2: Display Airlines
+3: Display Flight Names
+4: Display Sections
+5: Display Seating Arrangements
+
+Please select a valid option:
+5
+SeatID: AMER:AA1:Economy:1:0 Column[1] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:1 Column[1] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:2 Column[1] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:1:3 Column[1] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:0 Column[2] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:1 Column[2] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:2 Column[2] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:2:3 Column[2] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:0 Column[3] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:1 Column[3] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:2 Column[3] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:Economy:3:3 Column[3] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: AMER:AA1:First:1:0 Column[1] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:1:1 Column[1] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:2:0 Column[2] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:2:1 Column[2] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:3:0 Column[3] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA1:First:3:1 Column[3] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:0 Column[1] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:1 Column[1] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:2 Column[1] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:3 Column[1] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:1:4 Column[1] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:0 Column[2] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:1 Column[2] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:2 Column[2] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:3 Column[2] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:2:4 Column[2] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:0 Column[3] Row[0] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:1 Column[3] Row[1] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:2 Column[3] Row[2] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:3 Column[3] Row[3] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:Economy:3:4 Column[3] Row[4] SeatPrice: [200] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:0 Column[1] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:1 Column[1] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:1:2 Column[1] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:0 Column[2] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:1 Column[2] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:2:2 Column[2] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:0 Column[3] Row[0] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:1 Column[3] Row[1] SeatPrice: [500] SeatBooked: [False]
+SeatID: AMER:AA2:First:3:2 Column[3] Row[2] SeatPrice: [500] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:0 Column[1] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:1 Column[1] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:2 Column[1] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:3 Column[1] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:4 Column[1] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:1:5 Column[1] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:0 Column[2] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:1 Column[2] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:2 Column[2] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:3 Column[2] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:4 Column[2] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:2:5 Column[2] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:0 Column[3] Row[0] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:1 Column[3] Row[1] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:2 Column[3] Row[2] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:3 Column[3] Row[3] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:4 Column[3] Row[4] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:Economy:3:5 Column[3] Row[5] SeatPrice: [300] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:0 Column[1] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:1 Column[1] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:1:2 Column[1] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:0 Column[2] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:1 Column[2] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:2:2 Column[2] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:0 Column[3] Row[0] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:1 Column[3] Row[1] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA21:First:3:2 Column[3] Row[2] SeatPrice: [800] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:0 Column[1] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:1 Column[1] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:2 Column[1] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:3 Column[1] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:1:4 Column[1] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:0 Column[2] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:1 Column[2] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:2 Column[2] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:3 Column[2] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:2:4 Column[2] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:0 Column[3] Row[0] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:1 Column[3] Row[1] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:2 Column[3] Row[2] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:3 Column[3] Row[3] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:Business:3:4 Column[3] Row[4] SeatPrice: [12400] SeatBooked: [False]
+SeatID: UNTD:UA12:First:1:0 Column[1] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:1:1 Column[1] Row[1] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:2:0 Column[2] Row[0] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:2:1 Column[2] Row[1] SeatPrice: [1200] SeatBooked: [False]
+SeatID: UNTD:UA12:First:3:0 Column[3] Row[0] SeatPrice: [1200] SeatBooked: [True]
+SeatID: UNTD:UA12:First:3:1 Column[3] Row[1] SeatPrice: [1200] SeatBooked: [False]
+
+Please choose an option from the following list:
+1: Create an airport system by using information provided in an input file.
+2: Change the price associated with seats in a flight section.
+3: Query the system for flights with available seats
+4: Change the seat class (e.g., Economy) pricing for an origin and destination for a given airline.
+5: Book a seat given a specific seat on a flight.
+6: Book a seat on a flight given only a seating preference and seating class
+7: Display details of the airport system
+8: Save details to file
+9: Quit
+Please select a valid option:

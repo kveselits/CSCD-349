@@ -11,33 +11,47 @@ namespace AirlineCruiseTrainBookingSystem
         public string FlId { get; }
 
         public SeatClass SeatClass { get; }
-        public int SeatPrice { get; set; }
 
         public Dictionary<int, List<Seat>> Layout { get; }
+        public string SeatId { get; set; }
+        public SeatPriceObject SeatPrice { get; set; }
+
+        public class SeatPriceObject
+        {
+            public int Price { get; set; }
+
+            public SeatPriceObject(int price)
+            {
+                Price = price;
+            }
+        }
 
         public FlightSection(string air, string flId, SeatClass seatClass, char layout, int rows, int seatPrice)
         {
             Air = air;
             FlId = flId;
             SeatClass = seatClass;
-            SeatPrice = seatPrice;
-            Layout = CreateLayout(layout, rows, seatPrice);
+            SeatPrice = new SeatPriceObject(seatPrice);
+            SeatId = new string($"{air}:{flId}:{seatClass.ToString()}");
+            Layout = CreateLayout(layout, rows);
         }
 
-        private Dictionary<int, List<Seat>> CreateLayout(char layout, int rows, int seatPrice)
+
+
+        private Dictionary<int, List<Seat>> CreateLayout(char layout, int rows)
         {
             layout = char.ToLower(layout);
             Dictionary<int, List<Seat>> tempLayout = new Dictionary<int, List<Seat>>();
             if (layout.Equals('s'))
-                return (tempLayout = InitializeLayout(rows, 3, tempLayout, seatPrice));
+                return (tempLayout = InitializeLayout(rows, 3, tempLayout));
             if (layout.Equals('m'))
-                return (tempLayout = InitializeLayout(rows, 4, tempLayout, seatPrice));
+                return (tempLayout = InitializeLayout(rows, 4, tempLayout));
             if (layout.Equals('w'))
-                return (tempLayout = InitializeLayout(rows, 10, tempLayout, seatPrice));
+                return (tempLayout = InitializeLayout(rows, 10, tempLayout));
             return tempLayout;
         }
 
-        private Dictionary<int, List<Seat>> InitializeLayout(int rows, int column, Dictionary<int, List<Seat>> tempLayout, int seatPrice)
+        private Dictionary<int, List<Seat>> InitializeLayout(int rows, int column, Dictionary<int, List<Seat>> tempLayout)
         {
             int columns = column;
             for (int i = 1; i <= columns; i++)
@@ -45,9 +59,9 @@ namespace AirlineCruiseTrainBookingSystem
                 tempLayout.Add(i, new List<Seat>());
                 for (int j = 0; j < rows; j++)
                 {
-                    tempLayout[i].Add(new Seat(j, i, seatPrice));
+                    var seatPrice = SeatPrice;
+                    tempLayout[i].Add(new Seat(j, i, seatPrice, SeatId));
                 }
-
             }
             return tempLayout;
         }
@@ -73,7 +87,6 @@ namespace AirlineCruiseTrainBookingSystem
                 Layout[col][row].Booked = true;
                 return true;
             }
-
             return false;
         }
     }

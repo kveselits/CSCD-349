@@ -8,6 +8,8 @@ namespace AirlineCruiseTrainBookingSystem
         public Dictionary<string, Airport> Airports { get; } = new Dictionary<string, Airport>();
         public Dictionary<string, Airline> Airlines { get; } = new Dictionary<string, Airline>();
 
+        public string AirportCodes { get; set; }
+
         public void createAirport(string n)
         {
             if (n.Length.Equals(3))
@@ -99,7 +101,7 @@ namespace AirlineCruiseTrainBookingSystem
                         {
                             foreach (var seat in column)
                             {
-                                Console.WriteLine($"Seat: Row[{seat.Row}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice}] Seat Booked: [{seat.Booked}]");
+                                Console.WriteLine($"Seat: Row[{seat.Row}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice.Price}] Seat Booked: [{seat.Booked}]");
                             }
                         }
                     }
@@ -158,7 +160,7 @@ namespace AirlineCruiseTrainBookingSystem
                                     {
                                         foreach (var seat in column)
                                         {
-                                            Console.WriteLine($"Seat: Row[{seat}] Column[{seat.Column}] Seat Price: [{seat.SeatPrice}] Seat Booked: [{seat.Booked}]");
+                                            Console.WriteLine($"SeatID: {seat.SeatId} Column[{seat.Column}] Row[{seat.Row}] SeatPrice: [{seat.SeatPrice.Price}] SeatBooked: [{seat.Booked}]");
                                         }
                                     }
                                 }
@@ -166,7 +168,6 @@ namespace AirlineCruiseTrainBookingSystem
                         }
                         break;
                     }
-
             }
         }
 
@@ -192,7 +193,7 @@ namespace AirlineCruiseTrainBookingSystem
 }
 public enum SeatClass
 {
-    first = 'F',
-    economy = 'E',
-    business = 'B'
+    First = 70,
+    Economy = 69,
+    Business = 66
 }

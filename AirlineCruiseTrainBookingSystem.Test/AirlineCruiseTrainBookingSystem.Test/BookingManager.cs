@@ -9,6 +9,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
     class BookingManager
     {
         private static SystemManager Res { get; } = new SystemManager();
+        
 
         private static List<Regex> RegexPatterns { get; } = new List<Regex>()
         {
@@ -25,7 +26,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
             if (matches.Count == 0)
                 Console.WriteLine("Invalid input: no flight data found.");
 
-            string airportCodes = matches[0].Groups[1].ToString();
+            Res.AirportCodes = matches[0].Groups[1].ToString();
             string airlineFlightData = matches[0].Groups[2].ToString();
 
             RegisterFlightData(airlineFlightData);
@@ -50,10 +51,10 @@ namespace AirlineCruiseTrainBookingSystem.Test
                 MatchCollection flightInfo;
                 MatchCollection seatingArrangements;
 
-                if ((airlineNames = RegexPatterns[1].Matches(airline)).Count > 0 && airline.Length < 6)
+                if ((airlineNames = RegexPatterns[1].Matches(airline.Trim())).Count > 0 && airline.Trim().Length < 6)
                 {
-                    Res.createAirline(airline);
-                    tempNames.Push(airline);
+                    Res.createAirline(airline.Trim());
+                    tempNames.Push(airline.Trim());
                 }
 
                 if ((flightInfo = RegexPatterns[2].Matches(airline)).Count > 0 && airline.Length >= 6)
@@ -69,56 +70,17 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
                 if ((seatingArrangements = RegexPatterns[3].Matches(airline)).Count > 0 && airline.Length >= 6)
                 {
-                    Match group0 = seatingArrangements[0];
-                    Match group1 = seatingArrangements[1];
+                    GroupCollection group0 = seatingArrangements[0].Groups;
+                    GroupCollection group1 = seatingArrangements[1].Groups;
 
-                    var class0 = (SeatClass)Convert.ToChar(group0.Groups[1].ToString());
-                    var class1 = (SeatClass)Convert.ToChar(group1.Groups[1].ToString());
-                    Res.createSection(tempNames.Peek(), tempIDs.Peek(), class0, Convert.ToInt32(group0.Groups[2].Value),
-                        Convert.ToChar(group0.Groups[3].Value), Convert.ToInt32(group0.Groups[4].Value));
-                    Res.createSection(tempNames.Peek(), tempIDs.Peek(), class1, Convert.ToInt32(group1.Groups[2].Value),
-                        Convert.ToChar(group1.Groups[3].Value), Convert.ToInt32(group1.Groups[4].Value));
+                    var seatClass0 = (SeatClass) Convert.ToInt32(Convert.ToChar((group0[1].Value)));
+                    var SeatClass1 = (SeatClass) Convert.ToInt32(Convert.ToChar((group1[1].Value)));
+                    Res.createSection(tempNames.Peek(), tempIDs.Peek(), seatClass0, Convert.ToInt32(group0[2].Value),
+                        Convert.ToChar(group0[3].Value), Convert.ToInt32(group0[4].Value));
+                    Res.createSection(tempNames.Peek(), tempIDs.Peek(), SeatClass1, Convert.ToInt32(group1[2].Value),
+                        Convert.ToChar(group1[3].Value), Convert.ToInt32(group1[4].Value));
                 }
             }
-        }
-
-        private static void RunTests()
-        {
-            Res.createAirport("DEN");
-            Res.createAirport("DFW");
-            Res.createAirport("LON");
-            Res.createAirport("DEN");//invalid
-            Res.createAirport("DENW");//invalid
-
-            Res.createAirline("DELTA");
-            Res.createAirline("AMER");
-            Res.createAirline("FRONT");
-            Res.createAirline("FRONTIER"); //invalid
-            Res.createAirline("FRONT"); //invalid
-
-            Res.createFlight("DELTA", "DEN", "LON", 2018, 10, 10, 10, 10, "123");
-            Res.createFlight("DELTA", "DEN", "DEN", 2018, 8, 8, 10, 10, "567abc");//same airprt
-            Res.createFlight("DEL", "DEN", "LON", 2018, 9, 8, 10, 10, "567"); //invalid airline
-            Res.createFlight("DELTA", "LON33", "DEN33", 2019, 5, 7, 10, 10, "123");//invalid airports
-            Res.createFlight("AMER", "DEN", "LON", 2010, 40, 100, 10, 10, "123abc");//invalid date
-
-
-            /*Res.createSection("DELTA", "123", SeatClass.economy, 200, 's', 2);
-            Res.createSection("DELTA", "123", SeatClass.first, 1000, 'W', 3);
-            Res.createSection("DELTA", "123", SeatClass.first, 1200, 'M', 5);//Invalid 
-            Res.createSection("SWSERTT", "123", SeatClass.economy, 300, 's', 2);//Invalid airline*/
-
-
-            Res.bookSeat("DELTA", "123", SeatClass.first, 1, 2);
-            Res.bookSeat("DELTA", "123", SeatClass.economy, 1, 2);
-            Res.bookSeat("DELTA", "123", SeatClass.economy, 1, 2);
-            Res.bookSeat("DELTA888", "123", SeatClass.business, 1, 3); //Invalid airline
-            Res.bookSeat("DELTA", "123haha7", SeatClass.business, 1, 3); //Invalid flightId
-            Res.bookSeat("DELTA", "123", SeatClass.economy, 1, 4); //already booked
-
-            Res.displaySystemDetails();
-
-            /*Res.findAvailableFlights("DEN", "LON");*/
         }
 
         private static string LoadFlightData()
