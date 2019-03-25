@@ -8,7 +8,7 @@ namespace AirlineCruiseTrainBookingSystem
 
         public Airport(string name)
         {
-            _name = name;
+            Name = name;
         }
 
         public string Name

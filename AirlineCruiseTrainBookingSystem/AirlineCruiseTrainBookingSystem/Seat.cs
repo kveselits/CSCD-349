@@ -7,15 +7,17 @@
         public int Column { get; }
         public FlightSection.SeatPriceObject SeatPrice { get; }
         public string SeatId { get; }
+        public char SectionLayout { get; }
         public bool Booked { get; set; }
 
-        public Seat(int row, int column, FlightSection.SeatPriceObject seatPrice, string seatId)
+        public Seat(int row, int column, FlightSection.SeatPriceObject seatPrice, string seatId, char sectionLayout)
         {
             Row = row;
             Column = column;
             SeatPrice = seatPrice;
             SeatId = $"{seatId}:{Column}:{Row}";
             SeatPrice = seatPrice;
+            SectionLayout = sectionLayout;
         }
 
     }

@@ -168,6 +168,8 @@ namespace AirlineCruiseTrainBookingSystem
                         }
                         break;
                     }
+                case 6:
+                    break;
             }
         }
 

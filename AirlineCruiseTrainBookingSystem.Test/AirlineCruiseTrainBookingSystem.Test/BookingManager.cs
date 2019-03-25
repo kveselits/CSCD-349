@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq.Expressions;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -9,14 +10,15 @@ namespace AirlineCruiseTrainBookingSystem.Test
     class BookingManager
     {
         private static SystemManager Res { get; } = new SystemManager();
-        
+
 
         private static List<Regex> RegexPatterns { get; } = new List<Regex>()
         {
-            new Regex("(\\[[A-Z]{3}[^\\]]+\\])(\\{.*?\\})", RegexOptions.IgnoreCase), //Matches Airport Codes and Airlines
-            new Regex("[A-Z]{0,6}", RegexOptions.IgnoreCase), //Matches Airline names less than 6 characters
+            new Regex("(\\[[A-Z]{3}[^\\]]+\\])(\\{.*?\\})", RegexOptions.IgnoreCase), // Matches Airport Codes and Airlines
+            new Regex("[A-Z]{0,6}", RegexOptions.IgnoreCase), // Matches Airline names less than 6 characters
             new Regex("(\\w{0,4})\\|(\\d{4}..\\d{1,2}..\\d{1,2}..\\d{1,2}..\\d{1,2})\\|(\\w{3})\\|(\\w{3})", RegexOptions.IgnoreCase), //Matches Flight ID, Date, and Origin/Destination
-            new Regex("(\\w):(\\d{3,4}):(\\w):(\\d)", RegexOptions.IgnoreCase) //Matches seating arrangements
+            new Regex("(\\w):(\\d{3,4}):(\\w):(\\d)", RegexOptions.IgnoreCase), // Matches seating arrangements
+            new Regex("(([A-Z]{3}))", RegexOptions.IgnoreCase) // Matches just airport codes.
         };
 
         public static void Main(string[] args)
@@ -26,16 +28,32 @@ namespace AirlineCruiseTrainBookingSystem.Test
             if (matches.Count == 0)
                 Console.WriteLine("Invalid input: no flight data found.");
 
-            Res.AirportCodes = matches[0].Groups[1].ToString();
+            string airportCodes = matches[0].Groups[1].ToString();
             string airlineFlightData = matches[0].Groups[2].ToString();
 
             RegisterFlightData(airlineFlightData);
+            RegisterAirports(airportCodes);
             BookingInterface uI = new BookingInterface(Res);
-            while (true)
+            bool keepRunning = true;
+            while (keepRunning)
             {
-                uI.StartUp();
+                keepRunning = uI.StartUp();
             }
-            
+
+        }
+
+        private static void RegisterAirports(string airportCodes)
+        {
+            string airportData = airportCodes.Split('[', ']')[1];
+            string[] airports = airportData.Split(',');
+            MatchCollection airportNames;
+            foreach (var airport in airports)
+            {
+                if ((airportNames = RegexPatterns[4].Matches(airport.Trim())).Count > 0 && airport.Trim().Length < 4)
+                {
+                    Res.createAirport(airport.Trim());
+                }
+            }
         }
 
         private static void RegisterFlightData(string flightData)
@@ -73,11 +91,11 @@ namespace AirlineCruiseTrainBookingSystem.Test
                     GroupCollection group0 = seatingArrangements[0].Groups;
                     GroupCollection group1 = seatingArrangements[1].Groups;
 
-                    var seatClass0 = (SeatClass) Convert.ToInt32(Convert.ToChar((group0[1].Value)));
-                    var SeatClass1 = (SeatClass) Convert.ToInt32(Convert.ToChar((group1[1].Value)));
+                    var seatClass0 = (SeatClass)Convert.ToInt32(Convert.ToChar((group0[1].Value)));
+                    var seatClass = (SeatClass)Convert.ToInt32(Convert.ToChar((group1[1].Value)));
                     Res.createSection(tempNames.Peek(), tempIDs.Peek(), seatClass0, Convert.ToInt32(group0[2].Value),
                         Convert.ToChar(group0[3].Value), Convert.ToInt32(group0[4].Value));
-                    Res.createSection(tempNames.Peek(), tempIDs.Peek(), SeatClass1, Convert.ToInt32(group1[2].Value),
+                    Res.createSection(tempNames.Peek(), tempIDs.Peek(), seatClass, Convert.ToInt32(group1[2].Value),
                         Convert.ToChar(group1[3].Value), Convert.ToInt32(group1[4].Value));
                 }
             }
@@ -85,15 +103,68 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
         private static string LoadFlightData()
         {
-            StreamReader sr = new StreamReader("C:\\Users\\kjuli\\Source\\Repos\\kveselits\\CSCD-349\\AirlineCruiseTrainBookingSystem\\AirlineCruiseTrainBookingSystem\\Boot.txt");
-            StringBuilder sb = new StringBuilder();
-
-            string line;
-            while ((line = sr.ReadLine()) != null)
-            {
-                sb.Append(line);
+            string line = string.Empty;
+            try
+            { 
+                using (StreamReader sr = new StreamReader("..\\..\\..\\ReadFile.ams"))
+                {
+                    line = sr.ReadToEnd();
+                    Console.WriteLine(line);
+                    return line;
+                }
             }
-            return sb.ToString();
+            catch (IOException e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+            return line;
+        }
+
+        public static void WriteToFile()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append('[');
+            int i = 0;
+            foreach (var airport in Res.Airports.Values)
+            {
+                i++;
+                if (i != Res.Airports.Values.Count)
+                    sb.Append($"{airport.Name}, ");
+                if (i == Res.Airports.Values.Count)
+                    sb.Append($"{airport.Name}]");
+            }
+            sb.Append('{');
+            foreach (var airline in Res.Airlines.Values)
+            {
+                sb.Append($"{airline.Name}[");
+                foreach (var flight in airline.Flights.Values)
+                {
+                    sb.Append(($"{flight.Id}|{flight.Date.Year}, {flight.Date.Month}, {flight.Date.Day}, {flight.Date.Hour}, {flight.Date.Minute}|{flight.Orig}|{flight.Dest}["));
+                    i = 0;
+                    foreach (var section in flight.Sections.Values)
+                    {
+                        i++;
+                        if(i != flight.Sections.Values.Count)
+                            sb.Append(
+                                $"{section.SeatClass.ToString()[0]}:{section.SeatPrice.Price}:{char.ToUpper(section.SectionLayout)}:{section.SectionRows},");
+                        if (i == flight.Sections.Count)
+                            sb.Append(
+                                $"{section.SeatClass.ToString()[0]}:{section.SeatPrice.Price}:{char.ToUpper(section.SectionLayout)}:{section.SectionRows}");
+                    }
+                    sb.Append("], ");
+                }
+            }
+
+            sb.Append('}');
+            string line = sb.ToString();
+
+            string fixedLine = line.Remove((line.Length - 3), 2);
+            using (StreamWriter outputFile = new StreamWriter("..\\..\\..\\WriteFile.ams"))
+            {
+                outputFile.WriteLine(fixedLine);
+                Console.WriteLine($"Airport system written to: {Path.GetFullPath("..\\..\\..\\WriteFile.ams")}");
+            }
         }
     }
 }

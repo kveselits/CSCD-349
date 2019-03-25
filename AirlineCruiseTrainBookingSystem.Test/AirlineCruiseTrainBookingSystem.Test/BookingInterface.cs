@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AirlineCruiseTrainBookingSystem.Test
 {
@@ -25,7 +26,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
                               $"7: Display details of the airport system\n" +
                               $"8: Save details to file\n" +
                               $"9: Quit");
-            selection = Selection(1, 9);
+            selection = obtainSelection(1, 9);
 
             switch (selection)
             {
@@ -59,7 +60,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
             return true;
         }
 
-        private int Selection(int min, int max)
+        private int obtainSelection(int min, int max)
         {
             int selection;
             do
@@ -74,12 +75,122 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
         private void SaveDetailsToFile()
         {
-            throw new NotImplementedException();
+            BookingManager.WriteToFile();
         }
 
         private void BookByPreference()
         {
-            throw new NotImplementedException();
+            SeatClass seatClass = ChooseSeatingClass();
+
+            Console.WriteLine("Would you like a Window or a Aisle seat?\n" +
+                              "1: Window seat\n" +
+                              "2: Aisle seat\n");
+            int selection = obtainSelection(1, 2);
+
+            FindSeat(selection, seatClass);
+        }
+
+        private bool FindSeat(int selection, SeatClass seatClass)
+        {
+            if (selection.Equals(1))
+            {
+                foreach (var airline in Res.Airlines.Values)
+                {
+                    foreach (var flight in airline.Flights.Values)
+                    {
+                        foreach (var section in flight.Sections.Values)
+                        {
+                            if (section.SeatClass.Equals(seatClass))
+                                foreach (var layout in section.Layout.Values)
+                                {
+                                    foreach (var seat in layout)
+                                    {
+                                        if (seat.SectionLayout.Equals('s'))
+                                        {
+                                            if (seat.Column.Equals(1) || seat.Column.Equals(3) && seat.Booked == false)
+                                            {
+                                                seat.Booked = true;
+                                                Console.WriteLine($"Booked seat: {seat.SeatId}");
+                                                return true;
+                                            }
+                                        }
+
+                                        if (seat.SectionLayout.Equals('m'))
+                                        {
+                                            if (seat.Column.Equals(1) || seat.Column.Equals(4) && seat.Booked == false)
+                                            {
+                                                seat.Booked = true;
+                                                Console.WriteLine($"Booked seat: {seat.SeatId}");
+                                                return true;
+                                            }
+                                        }
+
+                                        if (seat.SectionLayout.Equals('w'))
+                                        {
+                                            if (seat.Column.Equals(1) || seat.Column.Equals(10) && seat.Booked == false)
+                                            {
+                                                seat.Booked = true;
+                                                Console.WriteLine($"Booked seat: {seat.SeatId}");
+                                                return true;
+                                            }
+                                        }
+                                    }
+                                }
+                        }
+                    }
+                }
+            }
+            if (selection.Equals(2))
+            {
+                foreach (var airline in Res.Airlines.Values)
+                {
+                    foreach (var flight in airline.Flights.Values)
+                    {
+                        foreach (var section in flight.Sections.Values)
+                        {
+                            if (section.SeatClass.Equals(seatClass))
+                                foreach (var layout in section.Layout.Values)
+                                {
+                                    foreach (var seat in layout)
+                                    {
+                                        if (seat.SectionLayout.Equals('s'))
+                                        {
+                                            if (seat.Column.Equals(1) || seat.Column.Equals(2) && seat.Booked == false)
+                                            {
+                                                seat.Booked = true;
+                                                Console.WriteLine($"Booked seat: {seat.SeatId}");
+                                                return true;
+                                            }
+                                        }
+
+                                        if (seat.SectionLayout.Equals('m'))
+                                        {
+                                            if (seat.Column.Equals(2) || seat.Column.Equals(3) && seat.Booked == false)
+                                            {
+                                                seat.Booked = true;
+                                                Console.WriteLine($"Booked seat: {seat.SeatId}");
+                                                return true;
+                                            }
+                                        }
+
+                                        if (seat.SectionLayout.Equals('w'))
+                                        {
+                                            if (seat.Column.Equals(3) || seat.Column.Equals(4) || seat.Column.Equals(7) || seat.Column.Equals(8) && seat.Booked == false)
+                                            {
+                                                seat.Booked = true;
+                                                Console.WriteLine($"Booked seat: {seat.SeatId}");
+                                                return true;
+                                            }
+                                        }
+
+                                    }
+                                }
+                        }
+                    }
+                }
+            }
+
+            return false;
         }
 
         private void BookSpecificSeat()
@@ -128,7 +239,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
             string seatClass = Console.ReadLine();
 
             Console.WriteLine("What would you like to change the price to?");
-            int newPrice = Selection(0, int.MaxValue);
+            int newPrice = obtainSelection(0, int.MaxValue);
 
             var sc = (SeatClass)Convert.ToInt32(Convert.ToChar(seatClass[0]));
 
@@ -141,8 +252,8 @@ namespace AirlineCruiseTrainBookingSystem.Test
                         if (flight.Orig.Equals(origin) && flight.Dest.Equals(destination))
                             foreach (var section in flight.Sections.Values)
                             {
-                                if(section.SeatClass.Equals(sc))
-                                section.SeatPrice.Price = newPrice;
+                                if (section.SeatClass.Equals(sc))
+                                    section.SeatPrice.Price = newPrice;
                             }
                     }
                 }
@@ -156,7 +267,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
             string origin = Console.ReadLine();
             Console.WriteLine("Please select a destination");
             string destination = Console.ReadLine();
-            SeatClass seatingClass = CreateSeatingClass();
+            SeatClass seatingClass = ChooseSeatingClass();
             Console.WriteLine("Please select a date");
             string tempDate = Console.ReadLine();
             DateTime date = new DateTime();
@@ -170,18 +281,13 @@ namespace AirlineCruiseTrainBookingSystem.Test
             }
         }
 
-        private SeatClass CreateSeatingClass()
+        private SeatClass ChooseSeatingClass()
         {
-            int selection;
-            do
-            {
-                Console.WriteLine("Please select a seating class:\n" +
-                                  "1: First\n" +
-                                  "2: Economy\n" +
-                                  "3: Business\n");
-                var input = Console.ReadLine();
-                int.TryParse(input, out selection);
-            } while (selection < 1 || selection > 3);
+            Console.WriteLine("Please select a seating class:\n" +
+                              "1: First\n" +
+                              "2: Economy\n" +
+                              "3: Business\n");
+            int selection = obtainSelection(1, 3);
 
             if (selection.Equals(1))
                 return SeatClass.First;
@@ -197,20 +303,21 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
         private void DisplaySystemDetails()
         {
-            int selection;
-            Console.WriteLine($"\nPlease selection an option:\n" +
-                              $"1: Display Airports\n" +
-                              $"2: Display Airlines\n" +
-                              $"3: Display Flight Names\n" +
-                              $"4: Display Sections\n" +
-                              $"5: Display Seating Arrangements \n");
             do
             {
-                Console.WriteLine("Please select a valid option: ");
-                var input = Console.ReadLine();
-                int.TryParse(input, out selection);
-            } while (selection < 1 || selection > 5);
-            Res.displaySystemDetails(selection);
+                int selection = 0;
+                Console.WriteLine($"\nPlease selection an option:\n" +
+                                  $"1: Display Airports\n" +
+                                  $"2: Display Airlines\n" +
+                                  $"3: Display Flight Names\n" +
+                                  $"4: Display Sections\n" +
+                                  $"5: Display Seating Arrangements \n" +
+                                  $"6: Quit \n");
+                selection = obtainSelection(1, 6);
+                Res.displaySystemDetails(selection);
+                if (selection.Equals(6))
+                    break;
+            } while (true);
         }
 
         private void ChangePrice()

@@ -10,6 +10,8 @@ namespace AirlineCruiseTrainBookingSystem
 
         public string FlId { get; }
 
+        public int SectionRows { get; }
+        public char SectionLayout { get; }
         public SeatClass SeatClass { get; }
 
         public Dictionary<int, List<Seat>> Layout { get; }
@@ -31,6 +33,8 @@ namespace AirlineCruiseTrainBookingSystem
             Air = air;
             FlId = flId;
             SeatClass = seatClass;
+            SectionRows = rows;
+            SectionLayout = char.ToLower(layout);
             SeatPrice = new SeatPriceObject(seatPrice);
             SeatId = new string($"{air}:{flId}:{seatClass.ToString()}");
             Layout = CreateLayout(layout, rows);
@@ -60,7 +64,7 @@ namespace AirlineCruiseTrainBookingSystem
                 for (int j = 0; j < rows; j++)
                 {
                     var seatPrice = SeatPrice;
-                    tempLayout[i].Add(new Seat(j, i, seatPrice, SeatId));
+                    tempLayout[i].Add(new Seat(j, i, seatPrice, SeatId, SectionLayout));
                 }
             }
             return tempLayout;
