@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace AirlineCruiseTrainBookingSystem.Test
@@ -298,7 +299,31 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
         private void CreateAirportSystem()
         {
-
+            Console.WriteLine("Please select an option to create an airport system: \n" +
+                              "1: Enter a path: \n" +
+                              "2: Use default file: \n" +
+                              "3: Quit: ");
+            int selection = obtainSelection(1, 2);
+            switch (selection)
+            {
+                case 1:
+                {
+                    string path = null;
+                    do
+                    {
+                        Console.WriteLine($"Please choose a path, (for example, C:\\file.txt) ");
+                        string input = Console.ReadLine();
+                        path = BookingManager.LoadFlightData(input);
+                    } while (path == null);
+                    BookingManager.InitializeAirportSystem(path);
+                    break;
+                }
+                case 2:
+                    BookingManager.InitializeAirportSystem($"..\\..\\..\\ReadFile.ams");
+                    break;
+                case 3:
+                    break;
+            }
         }
 
         private void DisplaySystemDetails()

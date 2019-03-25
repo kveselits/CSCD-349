@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq.Expressions;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -23,8 +22,16 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
         public static void Main(string[] args)
         {
-            string flightData = LoadFlightData();
-            MatchCollection matches = RegexPatterns[0].Matches(flightData);
+            BookingInterface uI = new BookingInterface(Res);
+            bool keepRunning = true;
+            while (keepRunning)
+            {
+                keepRunning = uI.StartUp();
+            }
+        }
+        public static void InitializeAirportSystem(string path)
+        {
+            MatchCollection matches = RegexPatterns[0].Matches(path);
             if (matches.Count == 0)
                 Console.WriteLine("Invalid input: no flight data found.");
 
@@ -33,15 +40,27 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
             RegisterFlightData(airlineFlightData);
             RegisterAirports(airportCodes);
-            BookingInterface uI = new BookingInterface(Res);
-            bool keepRunning = true;
-            while (keepRunning)
-            {
-                keepRunning = uI.StartUp();
-            }
-
         }
 
+        public static string LoadFlightData(string path)
+        {
+            string line = null;
+            try
+            { 
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    line = sr.ReadToEnd();
+                    Console.WriteLine($"Airport system loaded from: {Path.GetFullPath(path)}");
+                    return line;
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+            return line;
+        }
         private static void RegisterAirports(string airportCodes)
         {
             string airportData = airportCodes.Split('[', ']')[1];
@@ -101,25 +120,6 @@ namespace AirlineCruiseTrainBookingSystem.Test
             }
         }
 
-        private static string LoadFlightData()
-        {
-            string line = string.Empty;
-            try
-            { 
-                using (StreamReader sr = new StreamReader("..\\..\\..\\ReadFile.ams"))
-                {
-                    line = sr.ReadToEnd();
-                    Console.WriteLine(line);
-                    return line;
-                }
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(e.Message);
-            }
-            return line;
-        }
 
         public static void WriteToFile()
         {

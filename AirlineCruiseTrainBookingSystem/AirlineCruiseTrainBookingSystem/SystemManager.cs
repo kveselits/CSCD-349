@@ -108,6 +108,7 @@ namespace AirlineCruiseTrainBookingSystem
                 }
             }
         }
+
         public void displaySystemDetails(int selection)
         {
             switch (selection)
