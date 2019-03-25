@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using static AirlineCruiseTrainBookingSystem.Test.BookingManager;
 
 namespace AirlineCruiseTrainBookingSystem.Test
 {
     public class BookingInterface
     {
-        public SystemManager Res { get; set; }
-
-        public BookingInterface(SystemManager res)
-        {
-            Res = res;
-        }
-
         public bool StartUp()
         {
             int selection = 0;
@@ -26,7 +18,8 @@ namespace AirlineCruiseTrainBookingSystem.Test
                               $"6: Book a seat on a flight given only a seating preference and seating class\n" +
                               $"7: Display details of the airport system\n" +
                               $"8: Save details to file\n" +
-                              $"9: Quit");
+                              $"9: Start administrator interface\n" +
+                              $"10: Quit");
             selection = obtainSelection(1, 9);
 
             switch (selection)
@@ -56,12 +49,25 @@ namespace AirlineCruiseTrainBookingSystem.Test
                     SaveDetailsToFile();
                     break;
                 case 9:
+                    StartAdmin();
+                    break;
+                case 10:
                     return false;
             }
             return true;
         }
 
-        private int obtainSelection(int min, int max)
+        private void StartAdmin()
+        {
+            AdministratorInterface aI = new AdministratorInterface();
+            bool keepRunning = true;
+            while (keepRunning)
+            {
+                keepRunning = aI.StartUp();
+            }
+        }
+
+        internal static int obtainSelection(int min, int max)
         {
             int selection;
             do
@@ -282,7 +288,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
             }
         }
 
-        private SeatClass ChooseSeatingClass()
+        internal static SeatClass ChooseSeatingClass()
         {
             Console.WriteLine("Please select a seating class:\n" +
                               "1: First\n" +

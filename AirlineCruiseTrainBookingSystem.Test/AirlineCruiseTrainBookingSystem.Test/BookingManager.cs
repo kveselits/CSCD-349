@@ -8,8 +8,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
 {
     class BookingManager
     {
-        private static SystemManager Res { get; } = new SystemManager();
-
+        public static SystemManager Res { get; } = new SystemManager();
 
         private static List<Regex> RegexPatterns { get; } = new List<Regex>()
         {
@@ -22,7 +21,7 @@ namespace AirlineCruiseTrainBookingSystem.Test
 
         public static void Main(string[] args)
         {
-            BookingInterface uI = new BookingInterface(Res);
+            BookingInterface uI = new BookingInterface();
             bool keepRunning = true;
             while (keepRunning)
             {
@@ -119,7 +118,6 @@ namespace AirlineCruiseTrainBookingSystem.Test
                 }
             }
         }
-
 
         public static void WriteToFile()
         {

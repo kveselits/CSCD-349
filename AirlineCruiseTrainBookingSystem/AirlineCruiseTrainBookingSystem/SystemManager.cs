@@ -10,25 +10,33 @@ namespace AirlineCruiseTrainBookingSystem
 
         public string AirportCodes { get; set; }
 
-        public void createAirport(string n)
+        public bool createAirport(string n)
         {
             if (n.Length.Equals(3))
                 if (!Airports.TryAdd(n, new Airport(n)))
-                    Console.WriteLine("Invalid operation: Airport name already exists.");
-            if (n.Length != 3)
-                Console.WriteLine("Invalid length. Airport name must be exactly 3 characters long.");
+                {
+                    Console.WriteLine("Airport already already exists.");
+                    return false;
+                }
+            if(n.Length != 3)
+                Console.WriteLine("Airport name must be 3 characters");
+            return true;
         }
 
-        public void createAirline(string n)
+        public bool createAirline(string n)
         {
             if (n.Length < 6)
                 if (!Airlines.TryAdd(n, new Airline(n)))
+                {
                     Console.WriteLine("Invalid operation: Airline name already exists.");
+                    return false;
+                }
             if (!(n.Length < 6))
                 Console.WriteLine("Invalid length. Airline name must be less than 6 characters long.");
+            return true;
         }
 
-        public void createFlight(string aname, string orig, string dest, int year, int month, int day, int hour, int minute, string id)
+        public bool createFlight(string aname, string orig, string dest, int year, int month, int day, int hour, int minute, string id)
         {
             var date = CreateDate(year, month, day, hour, minute);
             if (!date.Equals(DateTime.MinValue))//Checking for Default MinValue which indicates DateTime exception
@@ -36,12 +44,16 @@ namespace AirlineCruiseTrainBookingSystem
                 if (!(orig.Equals(dest)))
                     if (Airlines.ContainsKey(aname))
                         if (!Airlines[aname].Flights.TryAdd(id, new Flight(aname, orig, dest, date, id)))
+                        {
                             Console.WriteLine("Invalid operation: Flight ID already exists.");
+                            return false;
+                        }
             }
             if (orig.Equals(dest))
                 Console.WriteLine("Origin cannot be the same as destination.");
             if (!Airlines.ContainsKey(aname))
                 Console.WriteLine("Airport does not exist");
+            return true;
         }
 
         private static DateTime CreateDate(int year, int month, int day, int hour, int minute)
@@ -59,16 +71,20 @@ namespace AirlineCruiseTrainBookingSystem
             return date;
         }
 
-        public void createSection(string air, string flID, SeatClass s, int seatPrice, char layout, int rows)
+        public bool createSection(string air, string flID, SeatClass s, int seatPrice, char layout, int rows)
         {
             if (rows <= 100)
                 if (Airlines.ContainsKey(air))
                     if (!Airlines[air].Flights[flID].Sections.TryAdd(s, new FlightSection(air, flID, s, layout, rows, seatPrice)))
+                    {
                         Console.WriteLine("Invalid Operation: Seat class already exists.");
+                        return false;
+                    }
             if (rows >= 100)
                 Console.WriteLine("Section must have no more than 100 rows and 10 columns.");
             if (!Airlines.ContainsKey(air))
                 Console.WriteLine("Airline does not exist.");
+            return true;
         }
 
         public void bookSeat(String air, String fl, SeatClass s, int col, int row)
